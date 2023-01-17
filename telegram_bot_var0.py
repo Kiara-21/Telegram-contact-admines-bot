@@ -10,10 +10,10 @@ updater = telegram.ext.Updater("INSERT YOUR TOKEN HERE", use_context=True)
 dispatcher = updater.dispatcher
 
 def start(update, context):
-    update.message.reply_text("Вітаю, надішліть ваше повідомлення і я його передам адмінам")
+    update.message.reply_text("Hello, send your message and i'll send it to admines")
 
 def echo(update, context):
-    context.bot.forward_message(chat_id='INSERT YOUR GROUP ID HERE', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
+    context.bot.forward_message(chat_id='INSERT YOUR CHAT OR GROUP ID HERE', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
 
 dispatcher.add_handler(telegram.ext.CommandHandler('start', start))
 dispatcher.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.all, echo))
