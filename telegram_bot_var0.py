@@ -4,16 +4,16 @@ import telegram.ext
 from telegram.ext import Updater, CommandHandler
 from telegram.ext import MessageHandler, Filters, InlineQueryHandler
 
-Token = "5934538222:AAFdouQg9YGGAvrLyagVHdFdD6UaweXzChk"
+Token = "INSERT YOUR TOKEN HERE"
 
-updater = telegram.ext.Updater("5934538222:AAFdouQg9YGGAvrLyagVHdFdD6UaweXzChk", use_context=True)
+updater = telegram.ext.Updater("INSERT YOUR TOKEN HERE", use_context=True)
 dispatcher = updater.dispatcher
 
 def start(update, context):
-    update.message.reply_text("Вітаю, надішліть ваше повідомлення і я його передам бібліаріям")
+    update.message.reply_text("Вітаю, надішліть ваше повідомлення і я його передам адмінам")
 
 def echo(update, context):
-    context.bot.forward_message(chat_id='-1001848570447', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
+    context.bot.forward_message(chat_id='INSERT YOUR GROUP ID HERE', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
 
 dispatcher.add_handler(telegram.ext.CommandHandler('start', start))
 dispatcher.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.all, echo))
